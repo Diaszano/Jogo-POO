@@ -358,7 +358,7 @@ public class Batalha {
 		
 		if(resultadoPassoPasso) {
 			System.out.println(orc.toString() + " tem de vida " + orc.getVida());
-			System.out.println(orc.toString() + " tem de vida " + orc.getVida());
+			System.out.println(humano.toString() + " tem de vida " + humano.getVida());
 		}
 	}
 	//Ja esse eh o calculo padrao dos golpes que sao dados no oponente 
