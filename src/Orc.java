@@ -4,8 +4,8 @@ public abstract class Orc extends Personagem{
 	private int forca;
 	private int habilidade;
 	private int agilidade;
-	private static int totalVida = 0;
-	private static int totalVivos = 0;
+	protected static int totalVida = 0;
+	protected static int totalVivos = 0;
 	
 	public Orc(int forca, int habilidade, int agilidade) {
 		this.forca = forca;

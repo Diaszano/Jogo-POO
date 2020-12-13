@@ -4,8 +4,8 @@ public abstract class Humano extends Personagem{
 	private int inteligencia;
 	private int velocidade;
 	private int equipamentos;
-	private static int totalVida = 0;
-	private static int totalVivos = 0;
+	protected static int totalVida = 0;
+	protected static int totalVivos = 0;
 	
 	public Humano(int inteligencia, int velocidade, int equipamentos) {
 		this.inteligencia = inteligencia;
