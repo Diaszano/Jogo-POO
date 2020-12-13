@@ -253,14 +253,17 @@ public class Batalha {
 		if(resultadoTotal) {
 			System.out.println(resultado);
 		}
+		humano.setTotalVivos(0);
+		orc.setTotalVivos(0);
 	}
 	//Calcula quem venceu a partida por ter mais vida ao total
 	private static void rodadasVida(ArrayList <Orc> o, ArrayList <Humano> h,boolean resultadoFinalPardida,boolean resultadoTotal) {
 		int humanosVida = 0;
 		int orcsVida = 0;
+		Orc orc = o.get(0);
+		Humano humano = h.get(0);
 		for(int i = 0; i < o.size();i++) {
-			Orc orc = o.get(i);
-			Humano humano = h.get(i);
+			
 			
 			int lifeH = humano.getVida();
 			int lifeO = orc.getVida();
@@ -284,10 +287,9 @@ public class Batalha {
 				}
 				System.out.println(resultadoTotalLocal);
 			}
-			humanosVida = humano.getTotalVida();
-			orcsVida = orc.getTotalVida();
 		}
-		
+		humanosVida = humano.getTotalVida();
+		orcsVida = orc.getTotalVida();
 		String resultado = new String();
 		if(humanosVida > orcsVida) {
 			resultado = "Os Humanos ganharam com " + String.valueOf(humanosVida) + " de vida e os Orcs ficaram com " + String.valueOf(orcsVida) + " de vida";
@@ -300,6 +302,8 @@ public class Batalha {
 		if(resultadoTotal) {
 			System.out.println(resultado);
 		}
+		humano.setTotalVida(0);
+		orc.setTotalVida(0);
 	}
 //**************************************************************************************************************************************
 //Parte aonde se eh feito o calculo e desconto dos golpes

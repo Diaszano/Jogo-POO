@@ -29,11 +29,17 @@ public abstract class Humano extends Personagem{
 	public void setTotalVida(int totalVida) {
 		Humano.totalVida = totalVida;
 	}
+	public void setTotalVida() {
+		Humano.totalVida = 0;
+	}
 	public int getTotalVivos() {
 		return totalVivos;
 	}
 	public void setTotalVivos() {
 		Humano.totalVivos++;
+	}
+	public void setTotalVivos(int i) {
+		Humano.totalVivos = i;
 	}
 	public String toString() {
 		return  "Humano";

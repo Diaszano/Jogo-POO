@@ -27,11 +27,17 @@ public abstract class Orc extends Personagem{
 	public void setTotalVida(int totalVida) {
 		Orc.totalVida = totalVida;
 	}
+	public void setTotalVida() {
+		Orc.totalVida = 0;
+	}
 	public int getTotalVivos() {
 		return totalVivos;
 	}
 	public void setTotalVivos() {
 		Orc.totalVivos++;
+	}
+	public void setTotalVivos(int i) {
+		Orc.totalVivos = i;
 	}
 	public String toString() {
 		return  "Orc";
