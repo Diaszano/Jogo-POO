@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Sorteio {
 	//Aqui nos temos o padrao aonde foi solicitado no trabalho
-	public static void padrao(ArrayList <Orc> o, ArrayList <Humano> h) {
+	public void padrao(ArrayList <Orc> o, ArrayList <Humano> h) {
 		Random aleatorio = new Random();
 		
 		for(int i = 0; i < 100; i++) {
@@ -12,7 +12,7 @@ public class Sorteio {
 			addObjs(o,h,orcNum,humanoNum);
 		}
 	}
-	public static void padrao(ArrayList <Orc> o, ArrayList <Humano> h,int quantidade) {
+	public void padrao(ArrayList <Orc> o, ArrayList <Humano> h,int quantidade) {
 		Random aleatorio = new Random();
 		
 		for(int i = 0; i < quantidade; i++) {
@@ -23,7 +23,7 @@ public class Sorteio {
 	}
 	//Nesse nos nao ocorre de um personagem ter 2 na seguida
 	//Mas se repete no jogo
-	public static void naoSequencia(ArrayList <Orc> o, ArrayList <Humano> h) {
+	public void naoSequencia(ArrayList <Orc> o, ArrayList <Humano> h) {
 		Random aleatorio = new Random();
 		int orcAnt = -1;
 		int humAnt = -1;
@@ -42,7 +42,7 @@ public class Sorteio {
 			addObjs(o,h,orcNum,humanoNum);
 		}
 	}
-	public static void naoSequencia(ArrayList <Orc> o, ArrayList <Humano> h,int quantidade) {
+	public void naoSequencia(ArrayList <Orc> o, ArrayList <Humano> h,int quantidade) {
 		Random aleatorio = new Random();
 		int orcAnt = -1;
 		int humAnt = -1;
@@ -62,7 +62,7 @@ public class Sorteio {
 		}
 	}
 	//Nesse eu fiz um random de 0 ate 99 para sortear a escolha do personagem
-	public static void zeroCem(ArrayList <Orc> o, ArrayList <Humano> h) {
+	public void zeroCem(ArrayList <Orc> o, ArrayList <Humano> h) {
 		Random aleatorio = new Random();
 		
 		for(int i = 0; i < 100; i++) {
@@ -86,7 +86,7 @@ public class Sorteio {
 			addObjs(o,h,orcNum,humanoNum);
 		}
 	}
-	public static void zeroCem(ArrayList <Orc> o, ArrayList <Humano> h,int quantidade) {
+	public void zeroCem(ArrayList <Orc> o, ArrayList <Humano> h,int quantidade) {
 		Random aleatorio = new Random();
 		
 		for(int i = 0; i < quantidade; i++) {
@@ -111,7 +111,7 @@ public class Sorteio {
 		}
 	}
 	//Nesse nao podera ter personagens que sao equivalentes para combater
-	public static void diferentes(ArrayList <Orc> o, ArrayList <Humano> h) {
+	public void diferentes(ArrayList <Orc> o, ArrayList <Humano> h) {
 		Random aleatorio = new Random();
 		
 		int orcNum = 0;
@@ -125,7 +125,7 @@ public class Sorteio {
 			addObjs(o,h,orcNum,humanoNum);
 		}
 	}
-	public static void diferentes(ArrayList <Orc> o, ArrayList <Humano> h, int quantidade) {
+	public void diferentes(ArrayList <Orc> o, ArrayList <Humano> h, int quantidade) {
 		Random aleatorio = new Random();
 		
 		int orcNum = 0;
@@ -141,7 +141,7 @@ public class Sorteio {
 	}
 	
 	//Aqui eh aonde tem se atribui os personagens no vetor
-	private static void addObjs(ArrayList <Orc> o, ArrayList <Humano> h,int orcNum, int humanoNum) {
+	private void addObjs(ArrayList <Orc> o, ArrayList <Humano> h,int orcNum, int humanoNum) {
 		switch(orcNum){
 			case 0:
 				o.add(new Ogro());

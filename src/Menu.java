@@ -12,7 +12,7 @@ public class Menu {
 		}
 	}
 	//Introducao do jogo
-	private static void inicio() {
+	private  void inicio() {
 		System.out.println("Ola, seja bem vindo ao jogo!");
 		System.out.println("Este jogo eh um jogo de cartas virtual " +
 						   "simples, tipo RPG de cartas ou Supertrunfo, " + 
@@ -21,7 +21,7 @@ public class Menu {
 		System.out.println("Facam as suas apostas e se divirtam! ");
 	}
 	//Menu com as informacoes primarias
-	private static void imprimir() {
+	private void imprimir() {
 		System.out.println("Escolha as opcoes abaixo para comecar a jogar: ");
 		System.out.println("1 - Modo classico");
 		System.out.println("2 - Modo Ate a Morte");
@@ -31,7 +31,7 @@ public class Menu {
 		System.out.println("6 - Sair ");
 	}
 	//Menu mais avancado
-	private static void avancadoImprimir() {
+	private void avancadoImprimir() {
 		System.out.println("Escolha as opcoes abaixo para comecar a jogar: ");
 		System.out.println("1 - Rodadas");
 		System.out.println("2 - Ate a morte");
@@ -42,7 +42,7 @@ public class Menu {
 //Esses lidam com a entrada de valores para o menu
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//Nesse tem a entrada do numero de vezes que vai ter a rodada na batalha
-	private static int rodadasNum(Scanner scanf) {
+	private int rodadasNum(Scanner scanf) {
 		int rodadas = 0;
 		
 		do {
@@ -53,7 +53,7 @@ public class Menu {
 		return rodadas;
 	}
 	//Nesse tem a entrada para escolher a quantidade de informacao que vai aparecer
-	private static int informacaoNum(Scanner scanf) {
+	private int informacaoNum(Scanner scanf) {
 		int informacao = 0;
 		
 		do {
@@ -67,7 +67,7 @@ public class Menu {
 		return informacao;
 	}
 	//Nesse tem a entrada para escolher como sera determinada a vitoria
-	private static int vitoriaNum(Scanner scanf) {
+	private int vitoriaNum(Scanner scanf) {
 		int vitoria = 0;
 		
 		do {
@@ -80,7 +80,7 @@ public class Menu {
 		return vitoria;
 	}
 	//Nesse tem a entrada para escolher como sera determinada a vitoria
-		private static int quantidadePersonagemNum(Scanner scanf) {
+		private int quantidadePersonagemNum(Scanner scanf) {
 			int quantidade = 0;
 			
 			do {
@@ -94,8 +94,9 @@ public class Menu {
 //Esses lidam com a "Logica" do menu
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	//Esse lida com o menu inicial de escolha do jogo 
-	private static void principal(Scanner scanf, ArrayList <Orc> o, ArrayList <Humano> h) {
+	private void principal(Scanner scanf, ArrayList <Orc> o, ArrayList <Humano> h) {
 		int opc = 0;
+		Batalha batalha = new Batalha();
 		do {
 				imprimir();
 				opc = scanf.nextInt();
@@ -103,25 +104,25 @@ public class Menu {
 				criacaoVetor(o,h,1);
 				switch(opc) {
 				  case 1:
-					  Batalha.rodadas(o,h,2);
+					  batalha.rodadas(o,h,2);
 					  scanf.nextLine();
 					  scanf.nextLine();
 					  limpaTela();
 						break;
 				  case 2:
-					  Batalha.morte(o,h,2);
+					  batalha.morte(o,h,2);
 					  scanf.nextLine();
 					  scanf.nextLine();
 					  limpaTela();
 						break;
 				  case 3:
-					  Batalha.rodadas(o,h,10,2,2);
+					  batalha.rodadas(o,h,10,2,2);
 					  scanf.nextLine();
 					  scanf.nextLine();
 					  limpaTela();
 					  	break;
 				  case 4:
-					  Batalha.lutaAleatoria(o,h,2);
+					  batalha.lutaAleatoria(o,h,2);
 					  scanf.nextLine();
 					  scanf.nextLine();
 					  limpaTela();
@@ -137,7 +138,7 @@ public class Menu {
 		}while(opc != 6);
 	}
 	//Ja esse lida com o menu um pouco mais avancado de escolha do jogo 
-	private static void avancado(Scanner scanf, ArrayList <Orc> o, ArrayList <Humano> h) {
+	private void avancado(Scanner scanf, ArrayList <Orc> o, ArrayList <Humano> h) {
 		int opc = 0;
 		o.clear();
 		h.clear();
@@ -174,32 +175,32 @@ public class Menu {
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//Esse chama o as luatas aleatorias
 	// Na luta aleatoria ele nao faz o combate pelos [(1-1),(2-2),(3-3)], mas sim n-n
-	private static void lutaAleatoriaImp(Scanner scanf, ArrayList <Orc> o, ArrayList <Humano> h) {
-		
+	private void lutaAleatoriaImp(Scanner scanf, ArrayList <Orc> o, ArrayList <Humano> h) {
+		Batalha batalha = new Batalha();
 		criacaoVetor(o,h,criacaoVetorNum(scanf),quantidadePersonagemNum(scanf));
 		
-		Batalha.lutaAleatoria(o,h,informacaoNum(scanf));
+		batalha.lutaAleatoria(o,h,informacaoNum(scanf));
 	}
 	//Esse chama a luta ate a morte
-	private static void morteImp(Scanner scanf, ArrayList <Orc> o, ArrayList <Humano> h) {
-		
+	private void morteImp(Scanner scanf, ArrayList <Orc> o, ArrayList <Humano> h) {
+		Batalha batalha = new Batalha();
 		criacaoVetor(o,h,criacaoVetorNum(scanf),quantidadePersonagemNum(scanf));
 		
-		Batalha.morte(o,h,informacaoNum(scanf));
+		batalha.morte(o,h,informacaoNum(scanf));
 	}
 	//Nesse ja eh o mais dinamico do jogo, aonde podemos escolher tanto a quantidade de rodadas
 	// e tambem como se dara o resultado
-	private static void rodadasmenu(Scanner scanf, ArrayList <Orc> o, ArrayList <Humano> h) {
-		
+	private void rodadasmenu(Scanner scanf, ArrayList <Orc> o, ArrayList <Humano> h) {
+		Batalha batalha = new Batalha();
 		criacaoVetor(o,h,criacaoVetorNum(scanf),quantidadePersonagemNum(scanf));
 		
-		Batalha.rodadas(o,h,rodadasNum(scanf),vitoriaNum(scanf),informacaoNum(scanf));
+		batalha.rodadas(o,h,rodadasNum(scanf),vitoriaNum(scanf),informacaoNum(scanf));
 	}
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //Esses lidam com a criacao e manipulacao do vetor
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//Aonde eu obtenho o da criacao do vetor
-	private static int criacaoVetorNum(Scanner scanf) {
+	private int criacaoVetorNum(Scanner scanf) {
 		int vetor = 0;
 		
 		do {
@@ -215,35 +216,37 @@ public class Menu {
 	}
 	
 	//Escolhe a opcao da criacao do vetor 
-	private static void criacaoVetor(ArrayList <Orc> o, ArrayList <Humano> h, int vetor) {
+	private void criacaoVetor(ArrayList <Orc> o, ArrayList <Humano> h, int vetor) {
+		Sorteio sorteio = new Sorteio();
 		switch(vetor) {
 		  case 1:
-			  Sorteio.padrao(o, h);
+			  sorteio.padrao(o, h);
 				break;
 		  case 2:
-			  Sorteio.naoSequencia(o, h);
+			  sorteio.naoSequencia(o, h);
 				break;
 		  case 3:
-			  Sorteio.zeroCem(o, h);
+			  sorteio.zeroCem(o, h);
 			  	break;
 		  case 4:
-			  Sorteio.diferentes(o, h);
+			  sorteio.diferentes(o, h);
 			  break;
 		}
 	}
-	private static void criacaoVetor(ArrayList <Orc> o, ArrayList <Humano> h, int vetor, int quantidade) {
-			switch(vetor) {
+	private void criacaoVetor(ArrayList <Orc> o, ArrayList <Humano> h, int vetor, int quantidade) {
+		Sorteio sorteio = new Sorteio();	
+		switch(vetor) {
 			  case 1:
-				  Sorteio.padrao(o, h, quantidade);
+				  sorteio.padrao(o, h, quantidade);
 					break;
 			  case 2:
-				  Sorteio.naoSequencia(o, h, quantidade);
+				  sorteio.naoSequencia(o, h, quantidade);
 					break;
 			  case 3:
-				  Sorteio.zeroCem(o, h, quantidade);
+				  sorteio.zeroCem(o, h, quantidade);
 				  	break;
 			  case 4:
-				  Sorteio.diferentes(o, h, quantidade);
+				  sorteio.diferentes(o, h, quantidade);
 				  	break;
 			}
 	}
@@ -251,7 +254,7 @@ public class Menu {
 //Lida com o menu do jogo
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//Menu aonde do jogo
-	public static void menu(ArrayList <Orc> o, ArrayList <Humano> h) {
+	public void menu(ArrayList <Orc> o, ArrayList <Humano> h) {
 		Scanner scanf = new Scanner(System.in);
 		inicio();
 		scanf.nextLine();

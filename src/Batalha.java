@@ -5,7 +5,7 @@ public class Batalha {
 //Modulo de batalhas
 //**************************************************************************************************************************************
 	//Esse eh o padrao, aonde se escolhe a quantidade de rodadas e qual a forma de vitoria
-	public static void rodadas(ArrayList <Orc> o, ArrayList <Humano> h, int rodadas, int opcVitoria, int informacao) {
+	public void rodadas(ArrayList <Orc> o, ArrayList <Humano> h, int rodadas, int opcVitoria, int informacao) {
 		
 		boolean resultadoFinalPardida = false;
 		boolean resultadoTotal = false;
@@ -70,7 +70,7 @@ public class Batalha {
 		}
 	}
 	
-	public static void rodadas(ArrayList <Orc> o, ArrayList <Humano> h, int informacao) {
+	public void rodadas(ArrayList <Orc> o, ArrayList <Humano> h, int informacao) {
 		
 		boolean resultadoFinalPardida = false;
 		boolean resultadoTotal = false;
@@ -111,7 +111,7 @@ public class Batalha {
 	}
 	
 	//Esse eh aonde tem a luta ate a morte do oponente
-	public static void morte(ArrayList <Orc> o, ArrayList <Humano> h, int informacao) {
+	public void morte(ArrayList <Orc> o, ArrayList <Humano> h, int informacao) {
 		
 		boolean resultadoFinalPardida = false;
 		boolean resultadoTotal = false;
@@ -157,7 +157,7 @@ public class Batalha {
 		rodadasVivos(o,h,resultadoFinalPardida,resultadoTotal);
 	}
 	//Ja com essa eh aonde tem a luta aleatoria dos poderes
-	public static void lutaAleatoria(ArrayList <Orc> o, ArrayList <Humano> h ,int informacao) {
+	public void lutaAleatoria(ArrayList <Orc> o, ArrayList <Humano> h ,int informacao) {
 		
 		boolean resultadoFinalPardida = false;
 		boolean resultadoTotal = false;
@@ -208,7 +208,7 @@ public class Batalha {
 //Parte aonde mostra o resultado
 //**************************************************************************************************************************************
 	//Calcula quem venceu a partida por ter mais pessoas vivas
-	private static void rodadasVivos(ArrayList <Orc> o, ArrayList <Humano> h,boolean resultadoFinalPardida,boolean resultadoTotal) {
+	private void rodadasVivos(ArrayList <Orc> o, ArrayList <Humano> h,boolean resultadoFinalPardida,boolean resultadoTotal) {
 		Orc orc = o.get(0);
 		Humano humano = h.get(0);
 		
@@ -257,7 +257,7 @@ public class Batalha {
 		orc.setTotalVivos(0);
 	}
 	//Calcula quem venceu a partida por ter mais vida ao total
-	private static void rodadasVida(ArrayList <Orc> o, ArrayList <Humano> h,boolean resultadoFinalPardida,boolean resultadoTotal) {
+	private void rodadasVida(ArrayList <Orc> o, ArrayList <Humano> h,boolean resultadoFinalPardida,boolean resultadoTotal) {
 		int humanosVida = 0;
 		int orcsVida = 0;
 		Orc orc = o.get(0);
@@ -309,7 +309,7 @@ public class Batalha {
 //Parte aonde se eh feito o calculo e desconto dos golpes
 //**************************************************************************************************************************************
 	//Esse calcula somente de forma aleatoria
-	private static void golpe(Orc orc, Humano humano, boolean resultadoPassoPasso, boolean iguais) {
+	private void golpe(Orc orc, Humano humano, boolean resultadoPassoPasso, boolean iguais) {
 		Random aleatorio = new Random();
 		
 		int orcAle = 0;
@@ -361,12 +361,12 @@ public class Batalha {
 		humano.setVida(humanoPoder,orcPoder);
 		
 		if(resultadoPassoPasso) {
-			System.out.println(orc.toString() + " tem de vida " + orc.getVida());
 			System.out.println(humano.toString() + " tem de vida " + humano.getVida());
+			System.out.println(orc.toString() + " tem de vida " + orc.getVida());
 		}
 	}
 	//Ja esse eh o calculo padrao dos golpes que sao dados no oponente 
-	private static void golpe(Orc orc, Humano humano, boolean resultadoPassoPasso) {
+	private void golpe(Orc orc, Humano humano, boolean resultadoPassoPasso) {
 		Random aleatorio = new Random();
 		
 		int numAle = aleatorio.nextInt(30);
@@ -396,7 +396,7 @@ public class Batalha {
 		humano.setVida(humanoPoder,orcPoder);
 		
 		if(resultadoPassoPasso) {
-			System.out.println(orc.toString() + " tem de vida " + orc.getVida());
+			System.out.println(humano.toString() + " tem de vida " + humano.getVida());
 			System.out.println(orc.toString() + " tem de vida " + orc.getVida());
 		}
 		
